@@ -70,6 +70,32 @@ public class CursomcApplication implements CommandLineRunner {
 
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria(null, "Escritório");
+		
+		Categoria cat5 = new Categoria(null, "Cama, mesa e banho");
+		Categoria cat6 = new Categoria(null, "Eletrônicos");
+		Categoria cat3 = new Categoria(null, "Jardinagem");
+		Categoria cat4 = new Categoria(null, "Decoração");
+		Categoria cat10 = new Categoria(null, "Banheiros");
+		Categoria cat11 = new Categoria(null, "Climatização e Ventilação");
+		Categoria cat12 = new Categoria(null, "Cozinhas e Áreas de Serviço");
+		Categoria cat13 = new Categoria(null, "Eletros");
+		Categoria cat14 = new Categoria(null, "Ferragens");
+		Categoria cat15 = new Categoria(null, "Ferramentas");
+		Categoria cat16 = new Categoria(null, "Iluminação");
+		Categoria cat17 = new Categoria(null, "Jardim e Varanda");
+		Categoria cat18 = new Categoria(null, "Limpeza da Casa");
+		Categoria cat19 = new Categoria(null, "Madeiras");
+		Categoria cat20 = new Categoria(null, "Materiais de Construção");
+		Categoria cat21 = new Categoria(null, "Materiais Elétricos");
+		Categoria cat22 = new Categoria(null, "Materiais Hidráulicos");
+		Categoria cat23 = new Categoria(null, "Móveis");
+		Categoria cat24 = new Categoria(null, "Organização da Casa");
+		Categoria cat25 = new Categoria(null, "Pet Shop");
+		Categoria cat26 = new Categoria(null, "Pisos e Revestimentos");
+		Categoria cat27 = new Categoria(null, "Portas, Janelas e Portões");
+		Categoria cat28 = new Categoria(null, "Segurança e Comunicação");
+		Categoria cat29 = new Categoria(null, "Tintas e Acessórios");
+		
 
 		Produto p1 = new Produto(null, "Computador", 2000.00);
 		Produto p2 = new Produto(null, "Impressora", 800.00);
@@ -82,7 +108,8 @@ public class CursomcApplication implements CommandLineRunner {
 		p2.getCategorias().addAll(Arrays.asList(cat1, cat2));
 		p3.getCategorias().addAll(Arrays.asList(cat1));
 
-		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
+		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat10, cat11, cat12, cat13, cat14, cat15, cat16, cat17, cat18, cat19, cat20, cat21, cat22, cat23, cat24, cat25, cat26, cat27, cat28, cat29
+));
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3));
 
 		Estado est1 = new Estado(null, "Minas Gerais");
