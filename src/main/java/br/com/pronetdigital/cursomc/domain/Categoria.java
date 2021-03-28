@@ -16,13 +16,13 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
+
 	@JsonManagedReference
-	@ManyToMany(mappedBy="categorias")
+	@ManyToMany(mappedBy = "categorias")
 	private List<Produto> produtos = new ArrayList<>();
 
 	public Categoria() {
@@ -82,6 +82,13 @@ public class Categoria implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Categoria [id=").append(id).append(", nome=").append(nome).append("]");
+		return builder.toString();
 	}
 
 }
