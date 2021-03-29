@@ -18,6 +18,7 @@ import br.com.pronetdigital.cursomc.domain.Endereco;
 import br.com.pronetdigital.cursomc.domain.enums.TipoCliente;
 import br.com.pronetdigital.cursomc.dto.ClienteDTO;
 import br.com.pronetdigital.cursomc.dto.ClienteNewDTO;
+import br.com.pronetdigital.cursomc.repositories.CidadeRepository;
 import br.com.pronetdigital.cursomc.repositories.ClienteRepository;
 import br.com.pronetdigital.cursomc.repositories.EnderecoRepository;
 import br.com.pronetdigital.cursomc.services.exceptions.DataIntegrityException;
@@ -31,6 +32,9 @@ public class ClienteService {
 	
 	@Autowired
 	private EnderecoRepository enderecoRepository;
+	
+	@Autowired
+	private CidadeRepository cidadeRepository;
 
 	public Cliente find(Integer id) {
 		Optional<Cliente> obj = repo.findById(id);
