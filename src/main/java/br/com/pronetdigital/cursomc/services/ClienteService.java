@@ -18,7 +18,6 @@ import br.com.pronetdigital.cursomc.domain.Endereco;
 import br.com.pronetdigital.cursomc.domain.enums.TipoCliente;
 import br.com.pronetdigital.cursomc.dto.ClienteDTO;
 import br.com.pronetdigital.cursomc.dto.ClienteNewDTO;
-import br.com.pronetdigital.cursomc.repositories.CidadeRepository;
 import br.com.pronetdigital.cursomc.repositories.ClienteRepository;
 import br.com.pronetdigital.cursomc.repositories.EnderecoRepository;
 import br.com.pronetdigital.cursomc.services.exceptions.DataIntegrityException;
@@ -29,12 +28,9 @@ public class ClienteService {
 
 	@Autowired
 	private ClienteRepository repo;
-	
+
 	@Autowired
 	private EnderecoRepository enderecoRepository;
-	
-	@Autowired
-	private CidadeRepository cidadeRepository;
 
 	public Cliente find(Integer id) {
 		Optional<Cliente> obj = repo.findById(id);
@@ -49,7 +45,7 @@ public class ClienteService {
 		enderecoRepository.saveAll(obj.getEnderecos());
 		return obj;
 	}
-	
+
 	public Cliente update(Cliente obj) {
 		Cliente newObj = find(obj.getId());
 		updateData(newObj, obj);
@@ -77,17 +73,19 @@ public class ClienteService {
 	public Cliente fromDTO(ClienteDTO objDto) {
 		return new Cliente(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null);
 	}
-	
+
 	public Cliente fromDTO(ClienteNewDTO objDto) {
-		Cliente cli = new Cliente(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(), TipoCliente.toEnum(objDto.getTipo()));
+		Cliente cli = new Cliente(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(),
+				TipoCliente.toEnum(objDto.getTipo()));
 		Cidade cid = new Cidade(objDto.getCidadeId(), null, null);
-		Endereco end = new Endereco(null, objDto.getLogradouro(), objDto.getNumero(), objDto.getComplemento(), objDto.getBairro(), objDto.getCep(), cli, cid);
+		Endereco end = new Endereco(null, objDto.getLogradouro(), objDto.getNumero(), objDto.getComplemento(),
+				objDto.getBairro(), objDto.getCep(), cli, cid);
 		cli.getEnderecos().add(end);
 		cli.getTelefones().add(objDto.getTelefone1());
-		if (objDto.getTelefone2()!=null) {
+		if (objDto.getTelefone2() != null) {
 			cli.getTelefones().add(objDto.getTelefone2());
 		}
-		if (objDto.getTelefone3()!=null) {
+		if (objDto.getTelefone3() != null) {
 			cli.getTelefones().add(objDto.getTelefone3());
 		}
 		return cli;
