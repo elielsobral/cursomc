@@ -47,13 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	};
 
 	private static final String[] PUBLIC_MATCHERS_POST = {
-<<<<<<< HEAD
-			"/clientes/**" 
-=======
 			"/clientes/**",
-			"/clientes/picture",
 			"/auth/forgot/**"
->>>>>>> cac1723 (Enviando imagem via endpoint)
 	};
 
 	@Override
